@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LULULOVE - Beauté & Bien-être</title>
+  <style>
+    :root {
+      --couleur-primaire: #a65e44;
+      --couleur-secondaire: #fff6f0;
+      --couleur-texte-blanc: #ffffff;
+      --couleur-bouton: #a65e44;
+      --couleur-bouton-hover: #8b4d37;
+      --couleur-accent: #FF7F7F;
+      --couleur-fonce: #FF6F00;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--couleur-secondaire);
+      color: #333;
+      line-height: 1.6;
+    }
+    a {
+      color: var(--couleur-primaire);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    header {
+      background-color: var(--couleur-primaire);
+      color: var(--couleur-texte-blanc);
+      padding: 20px 10px;
+      text-align: center;
+      font-size: 2.4rem;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+    nav {
+      background-color: #7a4930;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 12px 0;
+      font-weight: 600;
+    }
+    nav a {
+      color: var(--couleur-texte-blanc);
+      font-size: 1rem;
+    }
+    main {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    section {
+      margin-bottom: 60px;
+    }
+    #accueil, #services {
+      background: linear-gradient(135deg, #a65e44, #d9a17a);
+      color: white;
+      padding: 40px 20px;
+      border-radius: 15px;
+      text-align: center;
+    }
+    #accueil h1, #services h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    #apropos h2, #boutique h2, #galerie h2, #contact h2 {
+      color: var(--couleur-primaire);
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+    #services .btn-rdv {
+      background-color: var(--couleur-texte-blanc);
+      color: var(--couleur-primaire);
+      padding: 15px 35px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 20px;
+    }
+    #boutique .produits, #galerie .images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 10px;
+    }
+    .produit, .image {
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+    }
+    .produit img, .image img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    form {
+      background-color: #f9f2ef;
+      padding: 20px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 600px;
+      margin: auto;
+    }
+    input, textarea, select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    button {
+      padding: 12px;
+      background-color: var(--couleur-primaire);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: var(--couleur-bouton-hover);
+    }
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      padding: 12px 15px;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 18px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+    .whatsapp-float:hover {
+      background-color: #1ebe5d;
+    }
+    footer {
+      background-color: var(--couleur-primaire);
+      color: var(--couleur-texte-blanc);
+      text-align: center;
+      padding: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>LULULOVE</header>
+  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#apropos">À propos</a>
+    <a href="#services">Services</a>
+    <a href="#boutique">Boutique</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <main>
+    <section id="accueil">
+      <h1>Bienvenue chez LULULOVE</h1>
+      <p>Votre destination beauté, coiffure, maquillage et bien-être haut de gamme.</p>
+    </section>
+    <section id="apropos">
+      <h2>À propos</h2>
+      <p>LULULOVE est une marque de beauté fondée pour révéler l'élégance naturelle de chaque femme. Nous vous offrons des prestations sur mesure en coiffure, maquillage et bien-être.</p>
+    </section>
+    <section id="services">
+      <h2>Découvrir nos services</h2>
+      <p>Coiffure, maquillage, soins esthétiques, conseils en image... tout pour révéler votre éclat !</p>
+      <a href="#contact" class="btn-rdv">Prendre un rendez-vous</a>
+    </section>
+    <section id="boutique">
+      <h2>Boutique</h2>
+      <div class="produits">
+        <div class="produit">
+          <img src="https://via.placeholder.com/200x200?text=Perruque" alt="Perruque" />
+          <p>Perruques à partir de 25 000 F CFA</p>
+        </div>
+        <div class="produit">
+          <img src="https://via.placeholder.com/200x200?text=Pose+Perruque" alt="Pose de perruque" />
+          <p>Pose de perruque - 10 000 F CFA</p>
+        </div>
+        <div class="produit">
+          <img src="https://via.placeholder.com/200x200?text=Maquillage+Pro" alt="Maquillage pro" />
+          <p>Maquillage professionnel - 15 000 F CFA</p>
+        </div>
+      </div>
+    </section>
+    <section id="galerie">
+      <h2>Galerie</h2>
+      <div class="images">
+        <div class="image">
+          <img src="https://via.placeholder.com/300x200?text=Avant+%2F+Après" alt="Avant/Après" />
+        </div>
+        <div class="image">
+          <img src="https://via.placeholder.com/300x200?text=Coiffure+Luxe" alt="Coiffure" />
+        </div>
+        <div class="image">
+          <img src="https://via.placeholder.com/300x200?text=Maquillage+Pro" alt="Maquillage" />
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <h2>Contactez-nous</h2>
+      <p>Téléphone : <a href="https://wa.me/242041097671" target="_blank">04 109 76 71 (WhatsApp)</a></p>
+      <p>Email : <a href="mailto:contact@lululove.com">contact@lululove.com</a></p>
+      <form>
+        <input type="text" name="nom" placeholder="Votre nom" required />
+        <input type="email" name="email" placeholder="Votre email" required />
+        <input type="tel" name="telephone" placeholder="Votre téléphone" />
+        <select name="service">
+          <option>Choisir un service</option>
+          <option>Coiffure</option>
+          <option>Maquillage</option>
+          <option>Soins visage</option>
+          <option>Conseil en image</option>
+        </select>
+        <textarea name="message" rows="4" placeholder="Message / Demande spéciale..."></textarea>
+        <button type="submit">Envoyer la demande</button>
+      </form>
+    </section>
+  </main>
+  <a class="whatsapp-float" href="https://wa.me/242041097671" target="_blank">💬 WhatsApp</a>
+  <footer>&copy; 2025 LULULOVE. Tous droits réservés.</footer>
+</body>
+</html>
