@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LULULOVE - Boutique avec Panier & Paiement Mobile</title>
+<style>
+  :root {
+    --couleur-primaire: #a65e44;
+    --couleur-secondaire: #fff6f0;
+    --couleur-texte-blanc: #ffffff;
+    --couleur-bouton: #a65e44;
+    --couleur-bouton-hover: #8b4d37;
+    --couleur-accent: #FF7F7F;
+    --couleur-fonce: #FF6F00;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--couleur-secondaire);
+    color: #333;
+    margin: 0; padding: 0;
+  }
+  header {
+    background-color: var(--couleur-primaire);
+    color: var(--couleur-texte-blanc);
+    padding: 20px; text-align: center;
+    font-size: 2.4rem;
+    font-weight: bold;
+  }
+  nav {
+    background-color: #7a4930;
+    display: flex; justify-content: center;
+    gap: 20px; padding: 12px 0;
+    font-weight: 600;
+  }
+  nav a {
+    color: var(--couleur-texte-blanc);
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  nav a:hover {
+    color: var(--couleur-accent);
+  }
+  main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+  h2 {
+    color: var(--couleur-primaire);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .catalogue, .panier {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+    gap: 20px;
+  }
+  .produit {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  .produit img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  .produit p {
+    margin: 10px 0 5px;
+    font-weight: bold;
+  }
+  button {
+    background-color: var(--couleur-primaire);
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: var(--couleur-bouton-hover);
+  }
+  .panier {
+    margin-top: 40px;
+  }
+  .panier table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .panier th, .panier td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+  .total {
+    text-align: right;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.2rem;
+  }
+  form {
+    max-width: 600px;
+    margin: 30px auto;
+    background-color: #f9f2ef;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  input, textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  .btn-whatsapp {
+    display: block;
+    margin: 20px auto;
+    background-color: #25d366;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .btn-whatsapp:hover {
+    background-color: #1ebe5d;
+  }
+  footer {
+    background-color: var(--couleur-primaire);
+    color: var(--couleur-texte-blanc);
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+  }
+  @media(max-width: 600px) {
+    nav {
+      flex-wrap: wrap;
+    }
+  }
+</style>
+</head>
+<body>
+<header>LULULOVE</header>
+<nav>
+  <a href="#catalogue">Catalogue</a>
+  <a href="#panier">Panier</a>
+  <a href="#commande">Commander</a>
+</nav>
+<main>
+  <section id="catalogue">
+    <h2>Catalogue produits</h2>
+    <div class="catalogue" id="catalogueProduits"></div>
+  </section>
+  <section id="panier">
+    <h2>Panier</h2>
+    <table id="tablePanier">
+      <thead>
+        <tr><th>Produit</th><th>Qté</th><th>Prix unitaire</th><th>Total</th><th>Action</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="total" id="totalPanier">Total : 0 F CFA</div>
+  </section>
+  <section id="commande">
+    <h2>Formulaire de commande</h2>
+    <form id="formCommande">
+      <input type="text" name="nom" placeholder="Votre nom" required />
+      <input type="tel" name="telephone" placeholder="Votre téléphone (WhatsApp)" required />
+      <textarea name="adresse" placeholder="Adresse de livraison" rows="3" required></textarea>
+      <button type="submit">Envoyer la commande via WhatsApp</button>
+    </form>
+  </section>
+</main>
+
+<footer>&copy; 2025 LULULOVE. Tous droits réservés.</footer>
+
+<script>
+  // Catalogue des produits avec prix en F CFA
+  const produits = [
+    {id: 1, nom: "Perruque", prix: 25000, img: "https://via.placeholder.com/200x200?text=Perruque"},
+    {id: 2, nom: "Pose de perruque", prix: 10000, img: "https://via.placeholder.com/200x200?text=Pose+de+perruque"},
+    {id: 3, nom: "Maquillage professionnel", prix: 15000, img: "https://via.placeholder.com/200x200?text=Maquillage+Pro"},
+  ];
+
+  let panier = [];
+
+  const catalogueDiv = document.getElementById('catalogueProduits');
+  const tbodyPanier = document.querySelector('#tablePanier tbody');
+  const totalPanierDiv = document.getElementById('totalPanier');
+  const formCommande = document.getElementById('formCommande');
+
+  function afficherCatalogue() {
+    catalogueDiv.innerHTML = '';
+    produits.forEach(produit => {
+      const div = document.createElement('div');
+      div.className = 'produit';
+      div.innerHTML = `
+        <img src="${produit.img}" alt="${produit.nom}">
+        <p>${produit.nom}</p>
+        <p><strong>${produit.prix.toLocaleString()} F CFA</strong></p>
+        <button onclick="ajouterAuPanier(${produit.id})">Ajouter au panier</button>
+      `;
+      catalogueDiv.appendChild(div);
+    });
+  }
+
+  function ajouterAuPanier(id) {
+    const produit = produits.find(p => p.id === id);
+    if (!produit) return;
+    const itemPanier = panier.find(i => i.id === id);
+    if (itemPanier) {
+      itemPanier.quantite++;
+    } else {
+      panier.push({...produit, quantite: 1});
+    }
+    afficherPanier();
+  }
+
+  function afficherPanier() {
+    tbodyPanier.innerHTML = '';
+    let total = 0;
+    panier.forEach(item => {
+      const ligne = document.createElement('tr');
+      const totalLigne = item.prix * item.quantite;
+      total += totalLigne;
+      ligne.innerHTML = `
+        <td>${item.nom}</td>
+        <td>${item.quantite}</td>
+        <td>${item.prix.toLocaleString()} F CFA</td>
+        <td>${totalLigne.toLocaleString()} F CFA</td>
+        <td><button onclick="retirerDuPanier(${item.id})">X</button></td>
+      `;
+      tbodyPanier.appendChild(ligne);
+    });
+    totalPanierDiv.textContent = 'Total : ' + total.toLocaleString() + ' F CFA';
+  }
+
+  function retirerDuPanier(id) {
+    panier = panier.filter(i => i.id !== id);
+    afficherPanier();
+  }
+
+  formCommande.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if(panier.length === 0) {
+      alert('Votre panier est vide ! Ajoutez des produits avant de commander.');
+      return;
+    }
+    const nom = formCommande.nom.value.trim();
+    const telephone = formCommande.telephone.value.trim();
+    const adresse = formCommande.adresse.value.trim();
+
+    // Construire le message WhatsApp
+    let message = `Bonjour LULULOVE,%0ACommande de %0A`;
+    panier.forEach(item => {
+      message += `- ${item.nom} x${item.quantite} : ${item.prix.toLocaleString()} F CFA chacun%0A`;
+    });
+    message += `Total : ${panier.reduce((acc, cur) => acc + cur.prix * cur.quantite, 0).toLocaleString()} F CFA%0A`;
+    message += `%0ANom : ${nom}%0ATéléphone : ${telephone}%0AAdresse : ${adresse}%0A`;
+    message += `%0AMerci de me confirmer la disponibilité et les modalités de paiement.`;
+
+    const urlWhatsApp = `https://wa.me/242041097671?text=${message}`;
+    window.open(urlWhatsApp, '_blank');
+  });
+
+  afficherCatalogue();
+  afficherPanier();
+</script>
+
+</body>
+</html>
